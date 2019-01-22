@@ -1,0 +1,35 @@
+language: node_js
+node_js:
+  - '8.10'
+  - '10.13'
+  - 'node'
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+script:
+  - npm run test:ci
+  - npm run build
+
+matrix:
+  allow_failures:
+    - node_js: 'node'
+
+before_deploy:
+  - npm version ${TRAVIS_TAG}
+
+deploy:
+  provider: npm
+  email: npm@trademachines.com
+  api_key:
+    secure: "liYu0X7TzhkS51WXYrrTjA+ZTZ517jSUi6/D/lu+6UaA6nq9XYnt1vspQvprnFgreERJz29zPIIXS+QZlC8xFkmX2qIi7r9XXv9zsx8YgAokDnn0+DnFEj0JsyyPHYGHDqNj4bXvVJBWw8GPtpDN29WB2E10HUuiwk/bMRqv1WhihjZk7mB9dHmEZDuW4CLYln0VsUAnFCYoHwr0lyDpZD+AZp+ECT6OI8Bt5/6+4qSGSVHwtHTY3Bh8ZcXaXsam5zNePd5DuFAQBMdWZgNJMSvp7AqB/TZhpMBMPp7cn+VqV1xws3FLRqCkQtfSw8buaylNfkwO2B2caXEO2r7sSBqu5q3dWaL9VeDXQwYeqLmoZPlb2uAHADW8YZb2E+1K/+gPjf/Na7ayj9FyKJh5Ao9BYJMgP7G3zBhxLV3cC8/czWJfPF46XiWbKe22Ps1VUEfhi3qLM4bh9uRFOIl4r6qWypWLhvtWFPsrIGQlT1zbYoL2eYhqxhO9OidlirzmIOhVRIMsSA/mmjjZs4TKP6e39KngJmAyk+cCrGFqNc4g38Lt6aqcvw4B3vuQopaR7QFKLXfx+W7Su4CYjpPgTfHzjsLXK8671QcFnYOpNWsQ78dv59fd/pngAfBllqKLZ1vDFttkdG4AMWMSh5Wdvsd7v9IRq9ZXUbYei8/WGGc="
+  on:
+    tags: true
+    node: '8.10'
+  skip_cleanup: true
