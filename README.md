@@ -34,7 +34,12 @@ expect(...).toBeSomeWith();
 
 ### Node.js and TypeScript
 
-To be ready for use just add `require('@trademachines/jasmine-matchers');` to your Jasmine bootstrap file.
+Update your Jasmine boostrap file:
+
+```js
+require('@trademachines/jasmine-matchers');
+```
+
 Also, don't forget to add them to your list of types in `tsconfig.json` like so:
 
 ```json
