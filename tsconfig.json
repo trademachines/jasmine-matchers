@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "es2016"
     ],
@@ -16,6 +16,7 @@
     "noImplicitThis": true,
     "alwaysStrict": false,
     "sourceMap": true,
+    "skipLibCheck": true,
     "declaration": true,
     "rootDir": ".",
     "outDir": "build",
@@ -26,7 +27,8 @@
     ],
     "types": [
       "node",
-      "jasmine"
+      "jasmine",
+      "jasmine-expect"
     ]
   },
   "include": [
