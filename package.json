@@ -1,6 +1,6 @@
 {
-  "name": "@trademachines/jasmine-matchers",
-  "description": "Helping us to bootstrap typescript apps fast",
+  "name": "@trademachines/jasmine-utils",
+  "description": "Convenience stuff for jasmine",
   "license": "MIT",
   "keywords": [],
   "version": "0.0.0",

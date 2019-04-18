@@ -1,9 +1,9 @@
 version: '2'
 
 services:
-  jasmine-matchers:
+  jasmine-utils:
     image: node:8.10-alpine
-    hostname: jasmine-matchers
+    hostname: jasmine-utils
     working_dir: /usr/share/app
     volumes:
       - ~/.cache/yarn:/root/.cache/yarn
